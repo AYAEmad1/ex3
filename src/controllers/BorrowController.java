@@ -13,7 +13,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -220,10 +219,10 @@ public class BorrowController implements Initializable {
 
    
     List<Borrow> filtered = borrows.stream()
-            .filter(b -> b.getStudentId() != null && b.equals(studentId)
-                      && b.getBookId() != null && b.equals(bookId)
+            .filter(b -> b.getStudentId() != null && b.getStudentId().equals(studentId)
+                      && b.getBookId() != null && b.getBookId().equals(bookId)
                       && !b.getStatus()) 
-            .collect(Collectors.toList());
+            .toList();
 
     table.getItems().setAll(filtered);
 
