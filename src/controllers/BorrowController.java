@@ -219,8 +219,8 @@ public class BorrowController implements Initializable {
 
    
     List<Borrow> filtered = borrows.stream()
-            .filter(b -> b.getStudentId() != null && b.getStudentId().equals(studentId)
-                      && b.getBookId() != null && b.getBookId().equals(bookId)
+            .filter(b -> b.getStudentId().equals(studentId)
+                      && b.getBookId().equals(bookId)
                       && !b.getStatus()) 
             .toList();
 
